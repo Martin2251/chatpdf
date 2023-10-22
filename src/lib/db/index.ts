@@ -1,4 +1,5 @@
 import {neon, neonConfig} from"@neondatabase/serverless"
+import { drizzle } from "drizzle-orm/neon-http"
 import { WEB_VITALS } from "next/dist/shared/lib/utils"
 
 neonConfig.fetchConnectionCache = true
@@ -8,4 +9,6 @@ if(!process.env.DATABASE_URL){
 
 const sql = neon(process.env.DATABASE_URL)
 
-export const db
+
+
+export const db = drizzle(sql)
